@@ -16,8 +16,8 @@
                     :key="i"
                     :id="'tab-' + i"
             >
-                <v-card flat>
-                    <tweet v-if="i === icones[0]"></tweet>
+                <v-card flat v-if="i === icones[0]">
+                    <tweet></tweet>
                 </v-card>
             </v-tabs-content>
         </v-tabs-items>

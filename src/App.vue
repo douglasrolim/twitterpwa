@@ -1,31 +1,8 @@
 <template>
     <v-app light>
-        <v-navigation-drawer
-                persistent
-                :mini-variant="miniVariant"
-                :clipped="clipped"
-                v-model="drawer"
-                enable-resize-watcher
-                app
-        >
-            <v-list>
-                <v-list-tile
-                        value="true"
-                        v-for="(item, i) in items"
-                        :key="i"
-                >
-                    <v-list-tile-action>
-                        <v-icon light v-html="item.icon"></v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title v-text="item.title"></v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-navigation-drawer>
         <v-toolbar fixed app :clipped-left="clipped" card color="white">
-            <v-avatar class="toolbar__side-icon indigo" size="26">
-                <v-icon dark @click.stop="drawer = !drawer">account_circle</v-icon>
+            <v-avatar class="toolbar__side-icon indigo" size="26px">
+                <img :src="$store.state.conta.profile_image_url" :alt="$store.state.conta.screen_name">
             </v-avatar>
             <v-toolbar-title><b>{{title}}</b></v-toolbar-title>
         </v-toolbar>
@@ -52,7 +29,7 @@
             </v-list>
         </v-navigation-drawer>
         <v-footer :fixed="fixed" app>
-            <span>&copy; 2017</span>
+            <span>&copy; Douglas Rolim - TCC Progressive Web Apps</span>
         </v-footer>
     </v-app>
 </template>
@@ -71,7 +48,18 @@
                 right: true,
                 rightDrawer: false,
                 title: 'Página Inicial',
+                conta: {
+                }
             }
+        },
+        mounted: function () {
+            axios.get('http://localhost:8000/api/info')
+                .then(response => {
+                    this.$store.commit('ALTERA_CONTA', response.data);
+                })
+                .catch(e => {
+                    this.errors.push(e)
+                })
         }
     }
 </script>

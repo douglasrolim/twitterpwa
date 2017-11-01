@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Tabs from '@/components/Tabs'
 import Tweet from '@/components/Tweet'
+import Redigir from '@/components/Redigir'
 
 Vue.component('tweet', Tweet);
-Vue.use(Router)
+Vue.component('redigir', Redigir);
+Vue.use(Router);
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Tabs',
+      component: Tabs
     }
   ]
 })
