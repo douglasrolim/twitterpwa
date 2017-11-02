@@ -61,7 +61,7 @@
                 this.novoTweet = false;
             },
             atualizaFeed: function() {
-                axios.get('http://localhost:8000/api/feed')
+                axios.get('http://twitter.sa-east-1.elasticbeanstalk.com/api/feed')
                     .then(response => {
                         this.tweets = response.data;
                         this.carregando = false;

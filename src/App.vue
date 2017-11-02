@@ -53,7 +53,7 @@
             }
         },
         mounted: function () {
-            axios.get('http://localhost:8000/api/info')
+            axios.get('http://twitter.sa-east-1.elasticbeanstalk.com/api/info')
                 .then(response => {
                     this.$store.commit('ALTERA_CONTA', response.data);
                 })
