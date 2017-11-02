@@ -54,7 +54,7 @@
                 this.$emit('fechaDialog');
             },
             enviar: function () {
-                axios.post('http://twitter.sa-east-1.elasticbeanstalk.com/api/tweet', {tweet: this.tweet})
+                axios.post('https://twitter.sa-east-1.elasticbeanstalk.com/api/tweet', {tweet: this.tweet})
                     .then(response => {
                         this.fechaDialog();
                         this.$emit('atualizaFeed');

@@ -125,7 +125,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         handler: 'cacheFirst'
       },
       {
-        urlPattern: /^http:\/\/twitter\.sa-east-1\.elasticbeanstalk\.com\//,
+        urlPattern: /^https:\/\/twitter\.sa-east-1\.elasticbeanstalk\.com\//,
         handler: 'cacheFirst'
       },
       ]
